@@ -19,8 +19,10 @@ func addHandler(router *http.ServeMux) {
 
 func StartServer() error {
 	router := http.NewServeMux()
+	Live.Up()
 	addHandler(router)
 
+	Ready.Up()
 	server := &http.Server{
 		Addr:              ":8080",
 		Handler:           router,
