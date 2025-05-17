@@ -25,4 +25,7 @@ func (p *Probe) ServeHTTP(wr http.ResponseWriter, r *http.Request) {
 	wr.WriteHeader(http.StatusServiceUnavailable)
 }
 
-var Live, Ready = &Probe{}, &Probe{}
+var (
+	Ready = &Probe{}
+	Live  = &Probe{}
+)
