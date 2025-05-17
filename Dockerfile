@@ -6,7 +6,9 @@ COPY . .
 
 ENV CGO_ENABLED="0"
 
-RUN go mod download && go mod verify && go build -o ping ./cmd/
+RUN go mod download
+RUN go mod verify
+RUN go build -o ping ./cmd/
 
 FROM scratch AS final
 
