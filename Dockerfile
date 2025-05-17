@@ -1,9 +1,12 @@
 FROM golang:1.24.3-alpine3.21 AS builder
 
 WORKDIR /go/src/app
+
 COPY . .
-RUN go mod download
-RUN CGO_ENABLED=0 GOOS=linux go build -o ping ./cmd
+
+ENV CGO_ENABLED="0"
+
+RUN go mod download && go mod verify && go build -o ping ./cmd/
 
 FROM scratch AS final
 
