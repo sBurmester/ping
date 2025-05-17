@@ -19,8 +19,9 @@ import (
 	"go.opentelemetry.io/otel/sdk/resource"
 
 	semconv "go.opentelemetry.io/otel/semconv/v1.26.0"
-	//_ "github.com/KimMachineGun/automemlimit" // for side effects
-	//_ "go.uber.org/automaxprocs"              // for side effects
+
+	_ "github.com/KimMachineGun/automemlimit" // for side effects
+	_ "go.uber.org/automaxprocs"              // for side effects
 )
 
 func main() {
